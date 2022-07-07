@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PlayerCardDeck from "./playercarddeck";
 import PlayerCardPlayed from "./playercardplayed";
 import PlayerHand from "./playerhand";
-import CardDiscard from "./carddiscard";
+import CardDiscard from "./playercarddiscard";
 
 class PlayerSide extends Component {
   state = {
@@ -56,6 +56,8 @@ class PlayerSide extends Component {
   };
 
   render() {
+    const { callBackCardPlayedByPlayer } = this.props;
+
     return (
       <React.StrictMode>
         <CardDiscard cardDiscard={this.state.cardDiscard} />
@@ -64,7 +66,11 @@ class PlayerSide extends Component {
           callBackCardPlayed={this.callBackCardPlayed}
           cardPlayed={this.state.cardPlayed}
         />
-        <PlayerCardDeck onDraw={this.drawCard} cardDeck={this.state.cardDeck} />
+        <PlayerCardDeck
+          onDraw={this.drawCard}
+          cardDeck={this.state.cardDeck}
+          callBackCardPlayedByPlayer={callBackCardPlayedByPlayer}
+        />
         <PlayerCardPlayed
           cardPlayed={this.state.cardPlayed}
           onCardConfirmed={this.callBackCardConfirmed}
