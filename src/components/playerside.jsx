@@ -56,7 +56,7 @@ class PlayerSide extends Component {
   };
 
   render() {
-    const { callBackCardPlayedByPlayer } = this.props;
+    const { callBackCardDrewByPlayer } = this.props;
 
     return (
       <React.StrictMode>
@@ -69,7 +69,7 @@ class PlayerSide extends Component {
         <PlayerCardDeck
           onDraw={this.drawCard}
           cardDeck={this.state.cardDeck}
-          callBackCardPlayedByPlayer={callBackCardPlayedByPlayer}
+          callBackCardDrewByPlayer={callBackCardDrewByPlayer}
         />
         <PlayerCardPlayed
           cardPlayed={this.state.cardPlayed}

@@ -5,9 +5,10 @@ import PlayerSide from "./components/playerside";
 class AppRpsls extends Component {
   state = {
     playerCardDeckClicked: false,
+    playerCardPlayedClicked: false,
   };
 
-  callBackCardPlayedByPlayer = (childData) => {
+  callBackCardDrewByPlayer = (childData) => {
     this.setState({ playerCardDeckClicked: childData });
   };
 
@@ -15,9 +16,7 @@ class AppRpsls extends Component {
     return (
       <React.StrictMode>
         <BotSide playerCardDeckClicked={this.state.playerCardDeckClicked} />
-        <PlayerSide
-          callBackCardPlayedByPlayer={this.callBackCardPlayedByPlayer}
-        />
+        <PlayerSide callBackCardDrewByPlayer={this.callBackCardDrewByPlayer} />
       </React.StrictMode>
     );
   }

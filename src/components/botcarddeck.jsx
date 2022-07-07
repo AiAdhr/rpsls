@@ -1,14 +1,24 @@
 import React, { Component } from "react";
 
 class BotCardDeck extends Component {
-  state = {};
+  state = {
+    nbrOfCardPlayed: 0,
+  };
   render() {
-    const { cardDeckBot } = this.props;
+    const { playerCardDeckClicked } = this.props;
+
+    const nbrOfCard = () => {
+      if (playerCardDeckClicked) {
+        return 6 - this.state.nbrOfCardPlayed;
+      } else {
+        return 10;
+      }
+    };
 
     return (
       <React.StrictMode>
         <img src={require("./assets/Back.jpg")}></img>
-        Card : {cardDeckBot.length}
+        Card : {nbrOfCard()}
       </React.StrictMode>
     );
   }
