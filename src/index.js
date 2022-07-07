@@ -3,15 +3,15 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import PlayerHand from "./components/playerhand";
-import PlayerCard from "./components/playercard";
-import PlayerCardDeck from "./components/playercarddeck";
 import PlayerSide from "./components/playerside";
+import BotSide from "./components/botside";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <PlayerSide />
+    <div>
+      <PlayerSide />
+    </div>
   </React.StrictMode>
 );
 

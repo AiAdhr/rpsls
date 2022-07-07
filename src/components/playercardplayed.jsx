@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class PlayerCard extends Component {
+class PlayerCardPlayed extends Component {
   handleCard = (c) => {
     const a = {
       1: require("./assets/Rock.jpg"),
@@ -19,22 +19,16 @@ class PlayerCard extends Component {
   };
 
   render() {
-    const { card, callBackCardPlayed } = this.props;
+    const { cardPlayed, onCardConfirmed } = this.props;
 
-    const cardPlayed = () => {
-      callBackCardPlayed(card);
+    const CardConfirmed = () => {
+      onCardConfirmed(cardPlayed);
     };
 
     return (
-      <React.StrictMode>
-        <img
-          src={this.handleCard(card)}
-          alt={card.value}
-          onClick={cardPlayed}
-        />
-      </React.StrictMode>
+      <img src={this.handleCard(cardPlayed)} alt="" onClick={CardConfirmed} />
     );
   }
 }
 
-export default PlayerCard;
+export default PlayerCardPlayed;

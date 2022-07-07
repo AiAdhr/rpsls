@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PlayerCardDeck from "./playercarddeck";
+import PlayerCardPlayed from "./playercardplayed";
 import PlayerHand from "./playerhand";
+import CardDiscard from "./carddiscard";
 
 class PlayerSide extends Component {
   state = {
@@ -17,38 +19,56 @@ class PlayerSide extends Component {
       { id: 10, value: "Spock2" },
     ],
     cardDrew: [],
-    newCardDrew: 0,
+    cardPlayed: [],
+    cardDiscard: [],
+  };
+
+  callBackCardPlayed = (childData) => {
+    this.setState({ cardPlayed: childData });
+  };
+
+  callBackCardConfirmed = (childData) => {
+    this.setState({
+      cardDrew: this.state.cardDrew.filter((c) => c.value !== childData.value),
+    });
+    this.setState((previousState) => ({
+      cardDiscard: [...previousState.cardDiscard, childData],
+    }));
+    this.setState({ cardPlayed: [] });
   };
 
   drawCard = () => {
-    if (this.state.cardDrew.length < 4) {
-      const card =
-        this.state.cardDeck[
-          Math.floor(Math.random() * this.state.cardDeck.length)
-        ];
-      this.state.newCardDrew = card.id;
-      const cardDeck = this.state.cardDeck.filter(
-        (c) => c.value !== card.value
-      );
-      this.setState({ cardDeck });
-      this.setState((previousState) => ({
-        cardDrew: [...previousState.cardDrew, card],
-      }));
+    if (this.state.cardDrew.length + this.state.cardPlayed.length < 4) {
+      if (this.state.cardDeck.length + this.state.cardPlayed.length !== 0) {
+        const card =
+          this.state.cardDeck[
+            Math.floor(Math.random() * this.state.cardDeck.length)
+          ];
+        const cardDeck = this.state.cardDeck.filter(
+          (c) => c.value !== card.value
+        );
+        this.setState({ cardDeck });
+        this.setState((previousState) => ({
+          cardDrew: [...previousState.cardDrew, card],
+        }));
+      }
     }
   };
-
-  handleCardInHand = () => {};
 
   render() {
     return (
       <React.StrictMode>
+        <CardDiscard cardDiscard={this.state.cardDiscard} />
         <PlayerHand
-          inHand={this.handleCardInHand}
           cardDrew={this.state.cardDrew}
-          cardDrewId={this.state.cardDrew.id}
-          newCardDrew={this.state.newCardDrew}
+          callBackCardPlayed={this.callBackCardPlayed}
+          cardPlayed={this.state.cardPlayed}
         />
-        <PlayerCardDeck onDraw={this.drawCard} />
+        <PlayerCardDeck onDraw={this.drawCard} cardDeck={this.state.cardDeck} />
+        <PlayerCardPlayed
+          cardPlayed={this.state.cardPlayed}
+          onCardConfirmed={this.callBackCardConfirmed}
+        />
       </React.StrictMode>
     );
   }
