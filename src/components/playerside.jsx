@@ -56,26 +56,41 @@ class PlayerSide extends Component {
   };
 
   render() {
-    const { callBackCardDrewByPlayer } = this.props;
+    const { callBackCardDrewByPlayer, callBackCardConfirmedByPlayer } =
+      this.props;
 
     return (
-      <React.StrictMode>
-        <CardDiscard cardDiscard={this.state.cardDiscard} />
-        <PlayerHand
-          cardDrew={this.state.cardDrew}
-          callBackCardPlayed={this.callBackCardPlayed}
-          cardPlayed={this.state.cardPlayed}
-        />
-        <PlayerCardDeck
-          onDraw={this.drawCard}
-          cardDeck={this.state.cardDeck}
-          callBackCardDrewByPlayer={callBackCardDrewByPlayer}
-        />
-        <PlayerCardPlayed
-          cardPlayed={this.state.cardPlayed}
-          onCardConfirmed={this.callBackCardConfirmed}
-        />
-      </React.StrictMode>
+      <div className="playerBoard">
+        <div>
+          <PlayerCardPlayed
+            cardPlayed={this.state.cardPlayed}
+            onCardConfirmed={this.callBackCardConfirmed}
+            callBackCardConfirmedByPlayer={callBackCardConfirmedByPlayer}
+          />
+        </div>
+        <div className="playerSide">
+          <div>
+            <CardDiscard cardDiscard={this.state.cardDiscard} />
+          </div>
+
+          <div>
+            <PlayerHand
+              cardDrew={this.state.cardDrew}
+              callBackCardPlayed={this.callBackCardPlayed}
+              cardPlayed={this.state.cardPlayed}
+              cardDeck={this.state.cardDeck}
+            />
+          </div>
+
+          <div>
+            <PlayerCardDeck
+              onDraw={this.drawCard}
+              cardDeck={this.state.cardDeck}
+              callBackCardDrewByPlayer={callBackCardDrewByPlayer}
+            />
+          </div>
+        </div>
+      </div>
     );
   }
 }

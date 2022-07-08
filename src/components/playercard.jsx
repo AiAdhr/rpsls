@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import BotCardDeck from "./botcarddeck";
 
 class PlayerCard extends Component {
   handleCard = (c) => {
@@ -19,10 +20,14 @@ class PlayerCard extends Component {
   };
 
   render() {
-    const { card, callBackCardPlayed } = this.props;
+    const { card, callBackCardPlayed, cardDrew, cardDeck } = this.props;
 
     const cardPlayed = () => {
-      callBackCardPlayed(card);
+      if (cardDrew.length > 3) {
+        callBackCardPlayed(card);
+      } else if (cardDeck.length === 0) {
+        callBackCardPlayed(card);
+      }
     };
 
     return (
