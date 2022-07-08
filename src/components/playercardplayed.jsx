@@ -19,12 +19,17 @@ class PlayerCardPlayed extends Component {
   };
 
   render() {
-    const { cardPlayed, onCardConfirmed, callBackCardConfirmedByPlayer } =
-      this.props;
+    const {
+      cardPlayed,
+      onCardConfirmed,
+      callBackCardConfirmedByPlayer,
+      callBackCardPlayedByPlayer,
+    } = this.props;
 
     const CardConfirmed = () => {
       onCardConfirmed(cardPlayed);
       callBackCardConfirmedByPlayer(true);
+      callBackCardPlayedByPlayer(cardPlayed);
     };
 
     return (

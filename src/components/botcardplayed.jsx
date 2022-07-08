@@ -50,15 +50,19 @@ class BotCardPlayed extends Component {
           Math.floor(Math.random() * this.state.cardDeckBot.length)
         ];
       this.setState({ cardPlayedBot: card });
-      console.log("ok");
     }
   };
 
   render() {
-    var { playerCardDeckClicked, playerCardConfirmedClicked } = this.props;
+    var {
+      playerCardDeckClicked,
+      playerCardConfirmedClicked,
+      callBackCardPlayedByBot,
+    } = this.props;
 
     if (playerCardConfirmedClicked) {
       this.randomCard();
+      callBackCardPlayedByBot(this.state.cardPlayedBot);
     }
 
     if (playerCardDeckClicked) {

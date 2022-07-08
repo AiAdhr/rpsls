@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 
 class BotCardDeck extends Component {
-  state = {
-    nbrOfCardPlayed: 0,
-  };
+  state = {};
   render() {
-    const { playerCardDeckClicked } = this.props;
+    const { playerCardDeckClicked, nbrOfRound } = this.props;
 
     const nbrOfCard = () => {
       if (playerCardDeckClicked) {
-        return 6 - this.state.nbrOfCardPlayed;
+        return 6 - nbrOfRound;
       } else {
         return 10;
       }

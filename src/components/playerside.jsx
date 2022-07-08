@@ -34,7 +34,7 @@ class PlayerSide extends Component {
     this.setState((previousState) => ({
       cardDiscard: [...previousState.cardDiscard, childData],
     }));
-    this.setState({ cardPlayed: [] });
+    // this.setState({ cardPlayed: [] });
   };
 
   drawCard = () => {
@@ -56,8 +56,11 @@ class PlayerSide extends Component {
   };
 
   render() {
-    const { callBackCardDrewByPlayer, callBackCardConfirmedByPlayer } =
-      this.props;
+    const {
+      callBackCardDrewByPlayer,
+      callBackCardConfirmedByPlayer,
+      callBackCardPlayedByPlayer,
+    } = this.props;
 
     return (
       <div className="playerBoard">
@@ -66,6 +69,7 @@ class PlayerSide extends Component {
             cardPlayed={this.state.cardPlayed}
             onCardConfirmed={this.callBackCardConfirmed}
             callBackCardConfirmedByPlayer={callBackCardConfirmedByPlayer}
+            callBackCardPlayedByPlayer={callBackCardPlayedByPlayer}
           />
         </div>
         <div className="playerSide">
