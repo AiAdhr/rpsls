@@ -20,7 +20,6 @@ class PlayerSide extends Component {
     ],
     cardDrew: [],
     cardPlayed: [],
-    cardDiscard: [],
   };
 
   callBackCardPlayed = (childData) => {
@@ -31,10 +30,6 @@ class PlayerSide extends Component {
     this.setState({
       cardDrew: this.state.cardDrew.filter((c) => c.value !== childData.value),
     });
-    this.setState((previousState) => ({
-      cardDiscard: [...previousState.cardDiscard, childData],
-    }));
-    // this.setState({ cardPlayed: [] });
   };
 
   drawCard = () => {
@@ -60,7 +55,16 @@ class PlayerSide extends Component {
       callBackCardDrewByPlayer,
       callBackCardConfirmedByPlayer,
       callBackCardPlayedByPlayer,
+      cardDiscardPlayer,
+      battleOn,
+      handleBattleEnding,
     } = this.props;
+
+    if (battleOn) {
+      if (this.state.cardPlayed.length !== 0) {
+        this.setState({ cardPlayed: [] });
+      }
+    }
 
     return (
       <div className="playerBoard">
@@ -70,11 +74,12 @@ class PlayerSide extends Component {
             onCardConfirmed={this.callBackCardConfirmed}
             callBackCardConfirmedByPlayer={callBackCardConfirmedByPlayer}
             callBackCardPlayedByPlayer={callBackCardPlayedByPlayer}
+            battleOn={battleOn}
           />
         </div>
         <div className="playerSide">
           <div>
-            <CardDiscard cardDiscard={this.state.cardDiscard} />
+            <CardDiscard cardDiscardPlayer={cardDiscardPlayer} />
           </div>
 
           <div>
@@ -91,6 +96,7 @@ class PlayerSide extends Component {
               onDraw={this.drawCard}
               cardDeck={this.state.cardDeck}
               callBackCardDrewByPlayer={callBackCardDrewByPlayer}
+              handleBattleEnding={handleBattleEnding}
             />
           </div>
         </div>

@@ -4,23 +4,23 @@ class CardDiscard extends Component {
   state = {};
 
   render() {
-    const { cardDiscard } = this.props;
+    const { cardDiscardPlayer } = this.props;
 
     const rockCount =
-      cardDiscard.filter((c) => c.id === 1).length +
-      cardDiscard.filter((c) => c.id === 2).length;
+      cardDiscardPlayer.filter((c) => c.id === 1).length +
+      cardDiscardPlayer.filter((c) => c.id === 2).length;
     const paperCount =
-      cardDiscard.filter((c) => c.id === 3).length +
-      cardDiscard.filter((c) => c.id === 4).length;
+      cardDiscardPlayer.filter((c) => c.id === 3).length +
+      cardDiscardPlayer.filter((c) => c.id === 4).length;
     const ScissorsCount =
-      cardDiscard.filter((c) => c.id === 5).length +
-      cardDiscard.filter((c) => c.id === 6).length;
+      cardDiscardPlayer.filter((c) => c.id === 5).length +
+      cardDiscardPlayer.filter((c) => c.id === 6).length;
     const lizardCount =
-      cardDiscard.filter((c) => c.id === 7).length +
-      cardDiscard.filter((c) => c.id === 8).length;
+      cardDiscardPlayer.filter((c) => c.id === 7).length +
+      cardDiscardPlayer.filter((c) => c.id === 8).length;
     const spockCount =
-      cardDiscard.filter((c) => c.id === 9).length +
-      cardDiscard.filter((c) => c.id === 10).length;
+      cardDiscardPlayer.filter((c) => c.id === 9).length +
+      cardDiscardPlayer.filter((c) => c.id === 10).length;
 
     return (
       <React.StrictMode>

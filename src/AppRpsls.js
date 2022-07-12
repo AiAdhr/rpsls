@@ -11,6 +11,8 @@ class AppRpsls extends Component {
     cardPlayedByBot: [],
     nbrOfRound: 0,
     cardDiscardBot: [],
+    cardDiscardPlayer: [],
+    battleOn: false,
   };
 
   callBackCardDrewByPlayer = (childData) => {
@@ -41,7 +43,21 @@ class AppRpsls extends Component {
         ],
       }));
       this.setState({ cardPlayed: [] });
+      this.setState((previousState) => ({
+        cardDiscardPlayer: [
+          ...previousState.cardDiscardPlayer,
+          this.state.cardPlayedByPlayer,
+        ],
+      }));
+      this.setState({ battleOn: true });
+      // this.setState({ playerCardDeckClicked: false });
+      this.setState({ playerCardConfirmedClicked: false });
+      this.setState({ cardPlayedByBot: [] });
     }
+  };
+
+  handleBattleEnding = (childData) => {
+    this.setState({ battleOn: childData });
   };
 
   render() {
@@ -54,6 +70,7 @@ class AppRpsls extends Component {
             nbrOfRound={this.state.nbrOfRound}
             callBackCardPlayedByBot={this.callBackCardPlayedByBot}
             cardDiscardBot={this.state.cardDiscardBot}
+            battleOn={this.state.battleOn}
           />
         </div>
         <button onClick={this.handleBattle}>OK</button>
@@ -62,6 +79,9 @@ class AppRpsls extends Component {
             callBackCardDrewByPlayer={this.callBackCardDrewByPlayer}
             callBackCardConfirmedByPlayer={this.callBackCardConfirmedByPlayer}
             callBackCardPlayedByPlayer={this.callBackCardPlayedByPlayer}
+            cardDiscardPlayer={this.state.cardDiscardPlayer}
+            battleOn={this.state.battleOn}
+            handleBattleEnding={this.handleBattleEnding}
           />
         </div>
       </div>

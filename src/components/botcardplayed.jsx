@@ -44,13 +44,15 @@ class BotCardPlayed extends Component {
   };
 
   randomCard = () => {
-    if (this.state.cardPlayedBot.length === 0) {
-      const card =
-        this.state.cardDeckBot[
-          Math.floor(Math.random() * this.state.cardDeckBot.length)
-        ];
-      this.setState({ cardPlayedBot: card });
-    }
+    const card =
+      this.state.cardDeckBot[
+        Math.floor(Math.random() * this.state.cardDeckBot.length)
+      ];
+    this.setState({ cardPlayedBot: card });
+    const cardDeckBot = this.state.cardDeckBot.filter(
+      (c) => c.value !== card.value
+    );
+    this.setState({ cardDeckBot });
   };
 
   render() {
@@ -58,10 +60,19 @@ class BotCardPlayed extends Component {
       playerCardDeckClicked,
       playerCardConfirmedClicked,
       callBackCardPlayedByBot,
+      battleOn,
     } = this.props;
 
+    if (battleOn) {
+      if (this.state.cardPlayedBot.length !== 0) {
+        this.setState({ cardPlayedBot: [] });
+      }
+    }
+
     if (playerCardConfirmedClicked) {
-      this.randomCard();
+      if (this.state.cardPlayedBot.length === 0) {
+        this.randomCard();
+      }
       callBackCardPlayedByBot(this.state.cardPlayedBot);
     }
 
