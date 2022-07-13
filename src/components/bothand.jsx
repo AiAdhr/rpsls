@@ -13,42 +13,40 @@ class BotHand extends Component {
     if (this.state.cardInHand.length < 3) {
       if (playerCardDeckClicked) {
         if (nbrOfRound <= 6) {
-          this.setState({
-            cardInHand: [
-              { id: 1, value: "Card1" },
-              { id: 2, value: "Card2" },
-              { id: 3, value: "Card3" },
-            ],
-          });
+          return (
+            <React.StrictMode>
+              <img src={require("./assets/Back.jpg")} />
+              <img src={require("./assets/Back.jpg")} />
+              <img src={require("./assets/Back.jpg")} />
+            </React.StrictMode>
+          );
         }
         if (nbrOfRound === 7) {
-          this.setState({
-            cardInHand: [
-              { id: 1, value: "Card1" },
-              { id: 2, value: "Card2" },
-            ],
-          });
+          return (
+            <React.StrictMode>
+              <img src={require("./assets/Back.jpg")} />
+              <img src={require("./assets/Back.jpg")} />
+            </React.StrictMode>
+          );
         }
         if (nbrOfRound === 8) {
-          this.setState({
-            cardInHand: [{ id: 1, value: "Card1" }],
-          });
+          return (
+            <React.StrictMode>
+              <img src={require("./assets/Back.jpg")} />
+            </React.StrictMode>
+          );
         }
         if (nbrOfRound === 9) {
-          this.setState({
-            cardInHand: [],
-          });
+          return <React.StrictMode></React.StrictMode>;
         }
       }
     }
 
-    return (
-      <React.StrictMode>
-        {this.state.cardInHand.map(() => (
-          <img src={require("./assets/Back.jpg")} />
-        ))}
-      </React.StrictMode>
-    );
+    // return (
+    //   <React.StrictMode>
+    //     <img src={require("./assets/Back.jpg")} />
+    //   </React.StrictMode>
+    // );
   }
 }
 

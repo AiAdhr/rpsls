@@ -59,6 +59,7 @@ class BotCardPlayed extends Component {
       playerCardConfirmedClicked,
       callBackCardPlayedByBot,
       battleOn,
+      nbrOfRound,
     } = this.props;
 
     if (battleOn) {
@@ -74,12 +75,14 @@ class BotCardPlayed extends Component {
       callBackCardPlayedByBot(this.state.cardPlayedBot);
     }
 
-    if (playerCardDeckClicked) {
-      return (
-        <React.StrictMode>
-          <img src={this.handleCardImage(this.state.cardPlayedBot)} />
-        </React.StrictMode>
-      );
+    if (nbrOfRound !== 10) {
+      if (playerCardDeckClicked) {
+        return (
+          <React.StrictMode>
+            <img src={this.handleCardImage(this.state.cardPlayedBot)} />
+          </React.StrictMode>
+        );
+      }
     }
   }
 }

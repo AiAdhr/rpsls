@@ -29,7 +29,7 @@ class PlayerCardPlayed extends Component {
     const CardConfirmed = () => {
       onCardConfirmed(cardPlayed);
       callBackCardConfirmedByPlayer(true);
-      callBackCardPlayedByPlayer(cardPlayed);
+      // callBackCardPlayedByPlayer(cardPlayed);
     };
 
     return (

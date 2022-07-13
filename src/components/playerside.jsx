@@ -94,7 +94,6 @@ class PlayerSide extends Component {
               onDraw={this.drawCard}
               cardDeck={this.state.cardDeck}
               callBackCardDrewByPlayer={callBackCardDrewByPlayer}
-              handleBattleEnding={handleBattleEnding}
             />
           </div>
         </div>

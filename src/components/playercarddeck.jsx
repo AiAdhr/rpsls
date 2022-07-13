@@ -2,13 +2,12 @@ import React, { Component } from "react";
 
 class PlayerCardDeck extends Component {
   render() {
-    const { onDraw, cardDeck, callBackCardDrewByPlayer, handleBattleEnding } =
-      this.props;
+    const { onDraw, cardDeck, callBackCardDrewByPlayer } = this.props;
 
     const triggerDraw = () => {
       onDraw();
       callBackCardDrewByPlayer(true);
-      handleBattleEnding(false);
+      // handleBattleEnding(false);
     };
 
     return (

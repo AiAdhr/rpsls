@@ -58,8 +58,8 @@ class AppRpsls extends Component {
     }
   };
 
-  handleBattleEnding = (childData) => {
-    this.setState({ battleOn: childData });
+  handleBattleEnding = () => {
+    this.setState({ battleOn: false });
   };
 
   handleLog = () => {
@@ -158,7 +158,8 @@ class AppRpsls extends Component {
             battleOn={this.state.battleOn}
           />
         </div>
-        <button onClick={this.handleBattle}>OK</button>
+        <button onClick={this.handleBattle}>Reveal Card</button>
+        <button onClick={this.handleBattleEnding}>Next round</button>
         <div>
           <PlayerSide
             callBackCardDrewByPlayer={this.callBackCardDrewByPlayer}

@@ -41,6 +41,7 @@ class BotSide extends Component {
             callBackCardPlayedByBot={callBackCardPlayedByBot}
             battleOn={battleOn}
             cardDiscardBot={cardDiscardBot}
+            nbrOfRound={nbrOfRound}
           />
         </div>
       </div>
