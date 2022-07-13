@@ -25,7 +25,10 @@ class BotSide extends Component {
             />
           </div>
           <div>
-            <BotHand playerCardDeckClicked={playerCardDeckClicked} />
+            <BotHand
+              playerCardDeckClicked={playerCardDeckClicked}
+              nbrOfRound={nbrOfRound}
+            />
           </div>
           <div>
             <BotCardDiscard cardDiscardBot={cardDiscardBot} />

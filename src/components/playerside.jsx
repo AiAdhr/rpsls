@@ -7,16 +7,16 @@ import CardDiscard from "./playercarddiscard";
 class PlayerSide extends Component {
   state = {
     cardDeck: [
-      { id: 1, value: "Rock1" },
-      { id: 2, value: "Rock2" },
-      { id: 3, value: "Paper1" },
-      { id: 4, value: "Paper2" },
-      { id: 5, value: "Scissors1" },
-      { id: 6, value: "Scissors2" },
-      { id: 7, value: "Lizard1" },
-      { id: 8, value: "Lizard2" },
-      { id: 9, value: "Spock1" },
-      { id: 10, value: "Spock2" },
+      { id: 1, value: "Rock" },
+      { id: 2, value: "Rock" },
+      { id: 3, value: "Paper" },
+      { id: 4, value: "Paper" },
+      { id: 5, value: "Scissors" },
+      { id: 6, value: "Scissors" },
+      { id: 7, value: "Lizard" },
+      { id: 8, value: "Lizard" },
+      { id: 9, value: "Spock" },
+      { id: 10, value: "Spock" },
     ],
     cardDrew: [],
     cardPlayed: [],
@@ -28,7 +28,7 @@ class PlayerSide extends Component {
 
   callBackCardConfirmed = (childData) => {
     this.setState({
-      cardDrew: this.state.cardDrew.filter((c) => c.value !== childData.value),
+      cardDrew: this.state.cardDrew.filter((c) => c.id !== childData.id),
     });
   };
 
@@ -39,9 +39,7 @@ class PlayerSide extends Component {
           this.state.cardDeck[
             Math.floor(Math.random() * this.state.cardDeck.length)
           ];
-        const cardDeck = this.state.cardDeck.filter(
-          (c) => c.value !== card.value
-        );
+        const cardDeck = this.state.cardDeck.filter((c) => c.id !== card.id);
         this.setState({ cardDeck });
         this.setState((previousState) => ({
           cardDrew: [...previousState.cardDrew, card],

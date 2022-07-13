@@ -13,6 +13,8 @@ class AppRpsls extends Component {
     cardDiscardBot: [],
     cardDiscardPlayer: [],
     battleOn: false,
+    roundWonByPlayer: 0,
+    roundWonByBot: 0,
   };
 
   callBackCardDrewByPlayer = (childData) => {
@@ -49,8 +51,8 @@ class AppRpsls extends Component {
           this.state.cardPlayedByPlayer,
         ],
       }));
+      this.handleLog();
       this.setState({ battleOn: true });
-      // this.setState({ playerCardDeckClicked: false });
       this.setState({ playerCardConfirmedClicked: false });
       this.setState({ cardPlayedByBot: [] });
     }
@@ -58,6 +60,89 @@ class AppRpsls extends Component {
 
   handleBattleEnding = (childData) => {
     this.setState({ battleOn: childData });
+  };
+
+  handleLog = () => {
+    if (this.state.cardPlayedByPlayer.value === "Rock") {
+      if (this.state.cardPlayedByBot.value === "Rock") {
+      }
+      if (this.state.cardPlayedByBot.value === "Paper") {
+        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Scissors") {
+        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Lizard") {
+        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Spock") {
+        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
+      }
+    }
+    if (this.state.cardPlayedByPlayer.value === "Paper") {
+      if (this.state.cardPlayedByBot.value === "Rock") {
+        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Paper") {
+      }
+      if (this.state.cardPlayedByBot.value === "Scissors") {
+        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Lizard") {
+        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Spock") {
+        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
+      }
+    }
+    if (this.state.cardPlayedByPlayer.value === "Scissors") {
+      if (this.state.cardPlayedByBot.value === "Rock") {
+        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Paper") {
+        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Scissors") {
+      }
+      if (this.state.cardPlayedByBot.value === "Lizard") {
+        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Spock") {
+        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
+      }
+    }
+    if (this.state.cardPlayedByPlayer.value === "Lizard") {
+      if (this.state.cardPlayedByBot.value === "Rock") {
+        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Paper") {
+        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Scissors") {
+        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Lizard") {
+      }
+      if (this.state.cardPlayedByBot.value === "Spock") {
+        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
+      }
+    }
+    if (this.state.cardPlayedByPlayer.value === "Spock") {
+      if (this.state.cardPlayedByBot.value === "Rock") {
+        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Paper") {
+        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Scissors") {
+        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Lizard") {
+        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Spock") {
+      }
+    }
   };
 
   render() {
@@ -83,6 +168,10 @@ class AppRpsls extends Component {
             battleOn={this.state.battleOn}
             handleBattleEnding={this.handleBattleEnding}
           />
+        </div>
+        <div>
+          Player Wins : {this.state.roundWonByPlayer}
+          Bot Wins : {this.state.roundWonByBot}
         </div>
       </div>
     );

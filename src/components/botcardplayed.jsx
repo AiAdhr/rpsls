@@ -3,16 +3,16 @@ import React, { Component } from "react";
 class BotCardPlayed extends Component {
   state = {
     cardDeckBot: [
-      { id: 1, value: "Rock1" },
-      { id: 2, value: "Rock2" },
-      { id: 3, value: "Paper1" },
-      { id: 4, value: "Paper2" },
-      { id: 5, value: "Scissors1" },
-      { id: 6, value: "Scissors2" },
-      { id: 7, value: "Lizard1" },
-      { id: 8, value: "Lizard2" },
-      { id: 9, value: "Spock1" },
-      { id: 10, value: "Spock2" },
+      { id: 1, value: "Rock" },
+      { id: 2, value: "Rock" },
+      { id: 3, value: "Paper" },
+      { id: 4, value: "Paper" },
+      { id: 5, value: "Scissors" },
+      { id: 6, value: "Scissors" },
+      { id: 7, value: "Lizard" },
+      { id: 8, value: "Lizard" },
+      { id: 9, value: "Spock" },
+      { id: 10, value: "Spock" },
     ],
     cardPlayedBot: [],
   };
@@ -49,9 +49,7 @@ class BotCardPlayed extends Component {
         Math.floor(Math.random() * this.state.cardDeckBot.length)
       ];
     this.setState({ cardPlayedBot: card });
-    const cardDeckBot = this.state.cardDeckBot.filter(
-      (c) => c.value !== card.value
-    );
+    const cardDeckBot = this.state.cardDeckBot.filter((c) => c.id !== card.id);
     this.setState({ cardDeckBot });
   };
 

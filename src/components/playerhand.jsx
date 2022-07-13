@@ -10,7 +10,7 @@ class PlayerHand extends Component {
     return (
       <React.StrictMode>
         {cardDrew
-          .filter((c) => c.value !== cardPlayed.value)
+          .filter((c) => c.id !== cardPlayed.id)
           .map((card) => (
             <PlayerCard
               card={card}

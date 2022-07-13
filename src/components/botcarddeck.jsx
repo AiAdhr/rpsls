@@ -7,9 +7,13 @@ class BotCardDeck extends Component {
 
     const nbrOfCard = () => {
       if (playerCardDeckClicked) {
-        return 6 - nbrOfRound;
-      } else {
-        return 10;
+        if (nbrOfRound >= 6) {
+          return 0;
+        } else if (nbrOfRound < 6) {
+          return 6 - nbrOfRound;
+        } else {
+          return 10;
+        }
       }
     };
 
