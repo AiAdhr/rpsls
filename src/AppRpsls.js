@@ -37,7 +37,6 @@ class AppRpsls extends Component {
 
   handleBattle = () => {
     if (this.state.playerCardConfirmedClicked) {
-      this.setState({ nbrOfRound: this.state.nbrOfRound + 1 });
       this.setState((previousState) => ({
         cardDiscardBot: [
           ...previousState.cardDiscardBot,
@@ -59,7 +58,10 @@ class AppRpsls extends Component {
   };
 
   handleBattleEnding = () => {
-    this.setState({ battleOn: false });
+    if (this.state.battleOn) {
+      this.setState({ nbrOfRound: this.state.nbrOfRound + 1 });
+      this.setState({ battleOn: false });
+    }
   };
 
   handleLog = () => {
@@ -146,6 +148,10 @@ class AppRpsls extends Component {
   };
 
   render() {
+    const gameStatus = this.state.playerCardDeckClicked
+      ? "Round N°" + (this.state.nbrOfRound + 1)
+      : "Draw card from Deck To Start";
+
     return (
       <div className="body">
         <div>
@@ -158,7 +164,8 @@ class AppRpsls extends Component {
             battleOn={this.state.battleOn}
           />
         </div>
-        <button onClick={this.handleBattle}>Reveal Card</button>
+        <button onClick={this.handleBattle}>Clear Board</button>
+        {gameStatus}
         <button onClick={this.handleBattleEnding}>Next round</button>
         <div>
           <PlayerSide

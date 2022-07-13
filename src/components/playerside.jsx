@@ -55,7 +55,6 @@ class PlayerSide extends Component {
       callBackCardPlayedByPlayer,
       cardDiscardPlayer,
       battleOn,
-      handleBattleEnding,
     } = this.props;
 
     if (battleOn) {
@@ -94,6 +93,7 @@ class PlayerSide extends Component {
               onDraw={this.drawCard}
               cardDeck={this.state.cardDeck}
               callBackCardDrewByPlayer={callBackCardDrewByPlayer}
+              battleOn={battleOn}
             />
           </div>
         </div>
