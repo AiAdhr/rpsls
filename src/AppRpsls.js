@@ -144,8 +144,8 @@ class AppRpsls extends Component {
           </button>
         </div>
         <div className="logBattle">
-          Player Wins : {this.state.roundWonByPlayer}
-          Bot Wins : {this.state.roundWonByBot}
+          Player Score : {this.state.roundWonByPlayer}
+          Bot Score : {this.state.roundWonByBot}
         </div>
         <PlayerSide
           callBackCardDrewByPlayer={this.callBackCardDrewByPlayer}

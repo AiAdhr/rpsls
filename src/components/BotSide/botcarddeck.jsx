@@ -14,6 +14,8 @@ class BotCardDeck extends Component {
         } else {
           return 10;
         }
+      } else {
+        return 10;
       }
     };
 
