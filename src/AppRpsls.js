@@ -59,8 +59,10 @@ class AppRpsls extends Component {
 
   handleBattleEnding = () => {
     if (this.state.battleOn) {
-      this.setState({ nbrOfRound: this.state.nbrOfRound + 1 });
-      this.setState({ battleOn: false });
+      if (this.state.nbrOfRound < 9) {
+        this.setState({ nbrOfRound: this.state.nbrOfRound + 1 });
+        this.setState({ battleOn: false });
+      }
     }
   };
 
