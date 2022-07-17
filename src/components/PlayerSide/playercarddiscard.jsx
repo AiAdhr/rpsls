@@ -17,18 +17,17 @@ class CardDiscard extends Component {
       cardDiscardPlayer.filter((c) => c.id === 6).length;
     const lizardCount =
       cardDiscardPlayer.filter((c) => c.id === 7).length +
-      cardDiscardPlayer.filter((c) => c.id === 8).length;
-    const spockCount =
-      cardDiscardPlayer.filter((c) => c.id === 9).length +
-      cardDiscardPlayer.filter((c) => c.id === 10).length;
+      cardDiscardPlayer.filter((c) => c.id === 8).length +
+      cardDiscardPlayer.filter((c) => c.id === 9).length;
+    const spockCount = cardDiscardPlayer.filter((c) => c.id === 10).length;
 
     return (
       <div className="playerDiscard">
-        <div>Rock : {rockCount}</div>
-        <div>Paper : {paperCount}</div>
-        <div>Scissors : {ScissorsCount}</div>
-        <div>Lizard : {lizardCount}</div>
-        <div>Spock : {spockCount}</div>
+        <div>Buster : {rockCount}</div>
+        <div>Quick : {paperCount}</div>
+        <div>Art : {ScissorsCount}</div>
+        <div>Command Seal : {lizardCount}</div>
+        <div>Noble Phantasm : {spockCount}</div>
       </div>
     );
   }

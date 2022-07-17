@@ -3,16 +3,16 @@ import React, { Component } from "react";
 class PlayerCard extends Component {
   handleCard = (c) => {
     const a = {
-      1: require("./assets/Rock.jpg"),
-      2: require("./assets/Rock.jpg"),
-      3: require("./assets/Paper.jpg"),
-      4: require("./assets/Paper.jpg"),
-      5: require("./assets/Scissors.jpg"),
-      6: require("./assets/Scissors.jpg"),
-      7: require("./assets/Lizard.jpg"),
-      8: require("./assets/Lizard.jpg"),
-      9: require("./assets/Spock.jpg"),
-      10: require("./assets/Spock.jpg"),
+      1: require("./assets/Buster.jpg"),
+      2: require("./assets/Buster.jpg"),
+      3: require("./assets/Quick.jpg"),
+      4: require("./assets/Quick.jpg"),
+      5: require("./assets/Art.jpg"),
+      6: require("./assets/Art.jpg"),
+      7: require("./assets/Seal.jpg"),
+      8: require("./assets/Seal.jpg"),
+      9: require("./assets/Seal.jpg"),
+      10: require("./assets/NP.jpg"),
     };
 
     return a[c.id];

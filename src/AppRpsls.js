@@ -65,84 +65,56 @@ class AppRpsls extends Component {
   };
 
   handleLog = () => {
-    if (this.state.cardPlayedByPlayer.value === "Rock") {
-      if (this.state.cardPlayedByBot.value === "Rock") {
-      }
-      if (this.state.cardPlayedByBot.value === "Paper") {
+    if (this.state.cardPlayedByPlayer.value === "Buster") {
+      if (this.state.cardPlayedByBot.value === "Art") {
         this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
       }
-      if (this.state.cardPlayedByBot.value === "Scissors") {
+      if (this.state.cardPlayedByBot.value === "Quick") {
         this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
       }
-      if (this.state.cardPlayedByBot.value === "Lizard") {
-        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
-      }
-      if (this.state.cardPlayedByBot.value === "Spock") {
-        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
-      }
-    }
-    if (this.state.cardPlayedByPlayer.value === "Paper") {
-      if (this.state.cardPlayedByBot.value === "Rock") {
-        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
-      }
-      if (this.state.cardPlayedByBot.value === "Paper") {
-      }
-      if (this.state.cardPlayedByBot.value === "Scissors") {
-        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
-      }
-      if (this.state.cardPlayedByBot.value === "Lizard") {
-        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
-      }
-      if (this.state.cardPlayedByBot.value === "Spock") {
-        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
-      }
-    }
-    if (this.state.cardPlayedByPlayer.value === "Scissors") {
-      if (this.state.cardPlayedByBot.value === "Rock") {
-        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
-      }
-      if (this.state.cardPlayedByBot.value === "Paper") {
-        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
-      }
-      if (this.state.cardPlayedByBot.value === "Scissors") {
-      }
-      if (this.state.cardPlayedByBot.value === "Lizard") {
-        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
-      }
-      if (this.state.cardPlayedByBot.value === "Spock") {
+      if (this.state.cardPlayedByBot.value === "NP") {
         this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
       }
     }
-    if (this.state.cardPlayedByPlayer.value === "Lizard") {
-      if (this.state.cardPlayedByBot.value === "Rock") {
-        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
-      }
-      if (this.state.cardPlayedByBot.value === "Paper") {
+    if (this.state.cardPlayedByPlayer.value === "Art") {
+      if (this.state.cardPlayedByBot.value === "Buster") {
         this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
       }
-      if (this.state.cardPlayedByBot.value === "Scissors") {
+      if (this.state.cardPlayedByBot.value === "Quick") {
         this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
       }
-      if (this.state.cardPlayedByBot.value === "Lizard") {
-      }
-      if (this.state.cardPlayedByBot.value === "Spock") {
+      if (this.state.cardPlayedByBot.value === "NP") {
         this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
       }
     }
-    if (this.state.cardPlayedByPlayer.value === "Spock") {
-      if (this.state.cardPlayedByBot.value === "Rock") {
-        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
-      }
-      if (this.state.cardPlayedByBot.value === "Paper") {
+    if (this.state.cardPlayedByPlayer.value === "Quick") {
+      if (this.state.cardPlayedByBot.value === "Buster") {
         this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
       }
-      if (this.state.cardPlayedByBot.value === "Scissors") {
+      if (this.state.cardPlayedByBot.value === "Art") {
         this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
       }
-      if (this.state.cardPlayedByBot.value === "Lizard") {
+      if (this.state.cardPlayedByBot.value === "NP") {
         this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
       }
-      if (this.state.cardPlayedByBot.value === "Spock") {
+    }
+    if (this.state.cardPlayedByPlayer.value === "Seal") {
+      if (this.state.cardPlayedByBot.value === "NP") {
+        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 3 });
+      }
+    }
+    if (this.state.cardPlayedByPlayer.value === "NP") {
+      if (this.state.cardPlayedByBot.value === "Buster") {
+        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Art") {
+        this.setState({ roundWonByBot: this.state.roundWonByBot + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Quick") {
+        this.setState({ roundWonByPlayer: this.state.roundWonByPlayer + 1 });
+      }
+      if (this.state.cardPlayedByBot.value === "Seal") {
+        this.setState({ roundWonByBot: this.state.roundWonByBot + 3 });
       }
     }
   };
