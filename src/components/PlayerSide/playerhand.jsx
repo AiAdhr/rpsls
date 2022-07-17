@@ -8,7 +8,7 @@ class PlayerHand extends Component {
     const { cardDrew, callBackCardPlayed, cardPlayed, cardDeck } = this.props;
 
     return (
-      <React.StrictMode>
+      <div className="playerHand">
         {cardDrew
           .filter((c) => c.id !== cardPlayed.id)
           .map((card) => (
@@ -19,7 +19,7 @@ class PlayerHand extends Component {
               cardDeck={cardDeck}
             />
           ))}
-      </React.StrictMode>
+      </div>
     );
   }
 }

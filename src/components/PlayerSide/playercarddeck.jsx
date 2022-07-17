@@ -12,10 +12,10 @@ class PlayerCardDeck extends Component {
     };
 
     return (
-      <React.StrictMode>
+      <div className="playerDeck">
         <img onClick={triggerDraw} src={require("./assets/Back.jpg")} alt="" />
         Card : {cardDeck.length}
-      </React.StrictMode>
+      </div>
     );
   }
 }

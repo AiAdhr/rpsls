@@ -3,6 +3,7 @@ import PlayerCardDeck from "./playercarddeck";
 import PlayerCardPlayed from "./playercardplayed";
 import PlayerHand from "./playerhand";
 import CardDiscard from "./playercarddiscard";
+import "./stylePlayerSide.css";
 
 class PlayerSide extends Component {
   state = {
@@ -64,8 +65,8 @@ class PlayerSide extends Component {
     }
 
     return (
-      <div className="playerBoard">
-        <div>
+      <div className="playerSide">
+        <div className="playerPlayed">
           <PlayerCardPlayed
             cardPlayed={this.state.cardPlayed}
             onCardConfirmed={this.callBackCardConfirmed}
@@ -74,28 +75,22 @@ class PlayerSide extends Component {
             battleOn={battleOn}
           />
         </div>
-        <div className="playerSide">
-          <div>
-            <CardDiscard cardDiscardPlayer={cardDiscardPlayer} />
-          </div>
+        <div className="playerBoard">
+          <CardDiscard cardDiscardPlayer={cardDiscardPlayer} />
 
-          <div>
-            <PlayerHand
-              cardDrew={this.state.cardDrew}
-              callBackCardPlayed={this.callBackCardPlayed}
-              cardPlayed={this.state.cardPlayed}
-              cardDeck={this.state.cardDeck}
-            />
-          </div>
+          <PlayerHand
+            cardDrew={this.state.cardDrew}
+            callBackCardPlayed={this.callBackCardPlayed}
+            cardPlayed={this.state.cardPlayed}
+            cardDeck={this.state.cardDeck}
+          />
 
-          <div>
-            <PlayerCardDeck
-              onDraw={this.drawCard}
-              cardDeck={this.state.cardDeck}
-              callBackCardDrewByPlayer={callBackCardDrewByPlayer}
-              battleOn={battleOn}
-            />
-          </div>
+          <PlayerCardDeck
+            onDraw={this.drawCard}
+            cardDeck={this.state.cardDeck}
+            callBackCardDrewByPlayer={callBackCardDrewByPlayer}
+            battleOn={battleOn}
+          />
         </div>
       </div>
     );

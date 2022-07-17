@@ -22,13 +22,13 @@ class BotCardDiscard extends Component {
       cardDiscardBot.filter((c) => c.id === 10).length;
 
     return (
-      <React.StrictMode>
+      <div className="botDiscard">
         <div>Rock : {rockCount}</div>
         <div>Paper : {paperCount}</div>
         <div>Scissors : {ScissorsCount}</div>
         <div>Lizard : {lizardCount}</div>
         <div>Spock : {spockCount}</div>
-      </React.StrictMode>
+      </div>
     );
   }
 }

@@ -77,11 +77,13 @@ class BotCardPlayed extends Component {
 
     if (nbrOfRound !== 10) {
       if (playerCardDeckClicked) {
-        return (
-          <React.StrictMode>
-            <img src={this.handleCardImage(this.state.cardPlayedBot)} />
-          </React.StrictMode>
-        );
+        if (!battleOn) {
+          return (
+            <div className="botPlayed">
+              <img src={this.handleCardImage(this.state.cardPlayedBot)} />
+            </div>
+          );
+        }
       }
     }
   }

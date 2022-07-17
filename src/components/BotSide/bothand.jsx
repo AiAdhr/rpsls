@@ -14,39 +14,36 @@ class BotHand extends Component {
       if (playerCardDeckClicked) {
         if (nbrOfRound <= 6) {
           return (
-            <React.StrictMode>
+            <div className="botHand">
               <img src={require("./assets/Back.jpg")} />
               <img src={require("./assets/Back.jpg")} />
               <img src={require("./assets/Back.jpg")} />
-            </React.StrictMode>
+            </div>
           );
         }
         if (nbrOfRound === 7) {
           return (
-            <React.StrictMode>
+            <div className="botHand">
               <img src={require("./assets/Back.jpg")} />
               <img src={require("./assets/Back.jpg")} />
-            </React.StrictMode>
+            </div>
           );
         }
         if (nbrOfRound === 8) {
           return (
-            <React.StrictMode>
+            <div className="botHand">
               <img src={require("./assets/Back.jpg")} />
-            </React.StrictMode>
+            </div>
           );
         }
         if (nbrOfRound === 9) {
-          return <React.StrictMode></React.StrictMode>;
+          return <div className="botHand"></div>;
         }
       }
     }
-
-    // return (
-    //   <React.StrictMode>
-    //     <img src={require("./assets/Back.jpg")} />
-    //   </React.StrictMode>
-    // );
+    if (!playerCardDeckClicked) {
+      return <div className="botHand"></div>;
+    }
   }
 }
 

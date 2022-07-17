@@ -23,13 +23,13 @@ class CardDiscard extends Component {
       cardDiscardPlayer.filter((c) => c.id === 10).length;
 
     return (
-      <React.StrictMode>
+      <div className="playerDiscard">
         <div>Rock : {rockCount}</div>
         <div>Paper : {paperCount}</div>
         <div>Scissors : {ScissorsCount}</div>
         <div>Lizard : {lizardCount}</div>
         <div>Spock : {spockCount}</div>
-      </React.StrictMode>
+      </div>
     );
   }
 }

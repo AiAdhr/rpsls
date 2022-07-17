@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import BotCardDeck from "./botcarddeck";
 
 class PlayerCard extends Component {
   handleCard = (c) => {
@@ -31,13 +30,13 @@ class PlayerCard extends Component {
     };
 
     return (
-      <React.StrictMode>
+      <div className="playerCard">
         <img
           src={this.handleCard(card)}
           alt={card.value}
           onClick={cardPlayed}
         />
-      </React.StrictMode>
+      </div>
     );
   }
 }

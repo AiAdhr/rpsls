@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import BotSide from "./components/botside";
-import PlayerSide from "./components/playerside";
-import "./components/assets/style.css";
+import BotSide from "./components/BotSide/botside";
+import PlayerSide from "./components/PlayerSide/playerside";
+import "./styleApp.css";
 
 class AppRpsls extends Component {
   state = {
@@ -154,33 +154,35 @@ class AppRpsls extends Component {
 
     return (
       <div className="body">
-        <div>
-          <BotSide
-            playerCardDeckClicked={this.state.playerCardDeckClicked}
-            playerCardConfirmedClicked={this.state.playerCardConfirmedClicked}
-            nbrOfRound={this.state.nbrOfRound}
-            callBackCardPlayedByBot={this.callBackCardPlayedByBot}
-            cardDiscardBot={this.state.cardDiscardBot}
-            battleOn={this.state.battleOn}
-          />
+        <BotSide
+          playerCardDeckClicked={this.state.playerCardDeckClicked}
+          playerCardConfirmedClicked={this.state.playerCardConfirmedClicked}
+          nbrOfRound={this.state.nbrOfRound}
+          callBackCardPlayedByBot={this.callBackCardPlayedByBot}
+          cardDiscardBot={this.state.cardDiscardBot}
+          battleOn={this.state.battleOn}
+        />
+        <div className="gameInfo">
+          <button className="button" onClick={this.handleBattle}>
+            Clear Board
+          </button>
+          <div className="round">{gameStatus}</div>
+          <button className="button" onClick={this.handleBattleEnding}>
+            Next round
+          </button>
         </div>
-        <button onClick={this.handleBattle}>Clear Board</button>
-        {gameStatus}
-        <button onClick={this.handleBattleEnding}>Next round</button>
-        <div>
-          <PlayerSide
-            callBackCardDrewByPlayer={this.callBackCardDrewByPlayer}
-            callBackCardConfirmedByPlayer={this.callBackCardConfirmedByPlayer}
-            callBackCardPlayedByPlayer={this.callBackCardPlayedByPlayer}
-            cardDiscardPlayer={this.state.cardDiscardPlayer}
-            battleOn={this.state.battleOn}
-            handleBattleEnding={this.handleBattleEnding}
-          />
-        </div>
-        <div>
+        <div className="logBattle">
           Player Wins : {this.state.roundWonByPlayer}
           Bot Wins : {this.state.roundWonByBot}
         </div>
+        <PlayerSide
+          callBackCardDrewByPlayer={this.callBackCardDrewByPlayer}
+          callBackCardConfirmedByPlayer={this.callBackCardConfirmedByPlayer}
+          callBackCardPlayedByPlayer={this.callBackCardPlayedByPlayer}
+          cardDiscardPlayer={this.state.cardDiscardPlayer}
+          battleOn={this.state.battleOn}
+          handleBattleEnding={this.handleBattleEnding}
+        />
       </div>
     );
   }

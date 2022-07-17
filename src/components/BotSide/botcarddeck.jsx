@@ -18,10 +18,10 @@ class BotCardDeck extends Component {
     };
 
     return (
-      <React.StrictMode>
+      <div className="botDeck">
         <img src={require("./assets/Back.jpg")}></img>
         Card : {nbrOfCard()}
-      </React.StrictMode>
+      </div>
     );
   }
 }
